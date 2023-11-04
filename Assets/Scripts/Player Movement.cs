@@ -12,11 +12,14 @@ public class character : MonoBehaviour
     private Vector3 movement;
     private float verticalVelocity = 0f;
     private bool isJumping = false;
+    public float sensitivity = 2.0f; // Mouse look sensitivity.
+    private float rotationX = 0;
 
     // Start is called before the first frame update
     void Start()
     {
         characterController = GetComponent<CharacterController>();
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
     // Update is called once per frame
@@ -38,6 +41,15 @@ public class character : MonoBehaviour
         {
             transform.Rotate(Vector3.up, 90f * Time.deltaTime);
         }
+        float mouseX = Input.GetAxis("Mouse X") * sensitivity;
+        float mouseY = -Input.GetAxis("Mouse Y") * sensitivity; // Invert the vertical mouse input.
+
+        rotationX += mouseY;
+        rotationX = Mathf.Clamp(rotationX, -90f, 90f); // Clamp the vertical rotation to prevent flipping.
+
+        // Rotate the camera and character separately for looking around.
+        transform.Rotate(Vector3.up * mouseX);
+        Camera.main.transform.localRotation = Quaternion.Euler(rotationX, 0, 0);
 
         if (characterController.isGrounded)
         {
