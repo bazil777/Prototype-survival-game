@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class PlayerAttack : MonoBehaviour
 {
+    //for stronger weapons it might be more useful here to have a getWeopon damage
+    //because some weapons in our final game will deal more damage.
     public int damageAmount = 10; // Damage amount the player's attack deals.
     public float maxAttackRange = 5.0f; // Maximum attack range.
 
@@ -9,7 +11,7 @@ public class PlayerAttack : MonoBehaviour
     {
         // Check for player input to attack (F or f key).
         if (Input.GetKeyDown(KeyCode.F) || Input.GetKeyDown(KeyCode.F))
-
+        //if key is detected then attack function called
         {
             Attack();
         }
@@ -34,4 +36,5 @@ public class PlayerAttack : MonoBehaviour
             }
         }
     }
+    
 }

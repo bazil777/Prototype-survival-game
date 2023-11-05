@@ -2,10 +2,10 @@ using UnityEngine;
 
 public class MagicBall : MonoBehaviour
 {
-    public float healingRadius = 3f; // Radius within which the player is healed
-    public int healingAmount = 5; // Amount of health to restore on contact
-    public int goldDeductionAmount = 10; // Amount of gold to deduct on contact
-    public float healingInterval = 1f; // Time interval between healing (adjust as needed)
+    public float healingRadius = 3f; // Radius player is affected
+    public int healingAmount = 5; // Amount of health to restore on contact x2
+    public int goldDeductionAmount = 10; // Amount of gold to deduct on contact x2
+    public float healingInterval = 1f; // Time interval between healing 
 
     private float nextHealTime;
 
@@ -34,7 +34,7 @@ public class MagicBall : MonoBehaviour
 
                     if (playerGold != null)
                     {
-                        // Deduct gold from the player
+                        // Deduct gold from the player if in radius
                         playerGold.DeductGold(goldDeductionAmount);
                     }
                 }

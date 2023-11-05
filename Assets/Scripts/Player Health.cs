@@ -3,7 +3,7 @@ using UnityEngine;
 public class PlayerHealth : MonoBehaviour
 {
     public int health = 60; // Initial health value
-    public Material deathMaterial; // Reference to the material to use when health reaches 0
+    public Material deathMaterial; // Reference to the material to use when health reaches 0 (may not apply in prototype as not core but will need to do something on death in final game )
     public int maxHealth = 100; // The maximum health value
 
     private Renderer capsuleRenderer;
@@ -11,7 +11,7 @@ public class PlayerHealth : MonoBehaviour
 
     private void Start()
     {
-        capsuleRenderer = GetComponent<Renderer>(); // Fix the access to the Renderer component
+        capsuleRenderer = GetComponent<Renderer>(); 
         originalMaterial = capsuleRenderer.material;
     }
 
@@ -22,7 +22,7 @@ public class PlayerHealth : MonoBehaviour
         if (health <= 0)
         {
             health = 0; // Ensure health doesn't go negative
-            // Handle player death or other game logic here
+            //if it is less than zero then call death function(atm it does nothing but in the game it will.)
             OnPlayerDeath();
         }
         UpdateMaterial();
@@ -43,7 +43,7 @@ public class PlayerHealth : MonoBehaviour
     private void OnPlayerDeath()
     {
         capsuleRenderer.material = deathMaterial;
-        // You can add more death-related actions here
+        // in the final game we will ad dmore actions here, like a visual que for death
     }
 
     // Update the material to the original when health changes

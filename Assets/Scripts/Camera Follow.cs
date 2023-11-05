@@ -5,13 +5,13 @@ using UnityEngine;
 public class CameraFollow : MonoBehaviour
 {
     public Transform target;
-    public Vector3 offset = new Vector3(0, 2.0f, 5f); // Adjust the offset as needed.
+    public Vector3 offset = new Vector3(0, 2.0f, 5f); // camera angle 
 
-    void LateUpdate() // Use LateUpdate to ensure the camera follows after the capsule's rotation.
+    void LateUpdate() // ensures the camera follows after the capsule's rotation.
     {
         if (target != null)
         {
-            // psotion of the camer
+            // psotion of the camera
             Vector3 desiredPosition = target.position - target.forward * offset.z + target.up * offset.y;
 
             // Interpolate the current position with the desired position for smooth movement.

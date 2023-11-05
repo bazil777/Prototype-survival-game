@@ -6,23 +6,23 @@ public class character : MonoBehaviour
 {
     private CharacterController characterController;
 
-    public float speed = 10f;
-    public float jumpForce = 5f; // Increase the jump force for a higher jump.
-    public float jumpDuration = 0.5f; // Adjust the jump duration as needed.
+    public float speed = 10f; //speed of player
+    public float jumpForce = 5f; // jump of player
+    public float jumpDuration = 0.5f; // how long jump will last
     private Vector3 movement;
     private float verticalVelocity = 0f;
     private bool isJumping = false;
     public float sensitivity = 2.0f; // Mouse look sensitivity.
     private float rotationX = 0;
 
-    // Start is called before the first frame update
+    
     void Start()
     {
         characterController = GetComponent<CharacterController>();
         Cursor.lockState = CursorLockMode.Locked;
     }
 
-    // Update is called once per frame
+
     void Update()
     {
         float verticalInput = Input.GetAxis("Vertical");
@@ -45,7 +45,7 @@ public class character : MonoBehaviour
         float mouseY = -Input.GetAxis("Mouse Y") * sensitivity; // Invert the vertical mouse input.
 
         rotationX += mouseY;
-        rotationX = Mathf.Clamp(rotationX, -90f, 90f); // Clamp the vertical rotation to prevent flipping.
+        rotationX = Mathf.Clamp(rotationX, -90f, 90f); // Clamp the vertical rotation to prevent buggy flipping
 
         // Rotate the camera and character separately for looking around.
         transform.Rotate(Vector3.up * mouseX);
@@ -53,7 +53,7 @@ public class character : MonoBehaviour
 
         if (characterController.isGrounded)
         {
-            // Handle jumping when the character is grounded and the Jump button is pressed.
+            // if player is grounded let him jump
             if (Input.GetButtonDown("Jump"))
             {
                 isJumping = true;
@@ -61,17 +61,17 @@ public class character : MonoBehaviour
             }
         }
 
-        // make sure doesnt float in the air.
+        // makes sure my player doesnt perform a jump and float , had an issue but it seems to be resolved with this
         verticalVelocity += Physics.gravity.y * Time.deltaTime;
 
-        // Check if the capsule is in the air due to jumping.
+        // Check if the capsule is in the air and jumping
         if (isJumping)
         {
             movement.y = verticalVelocity;
         }
         else
         {
-            // capsule is not jumping, so apply gravity.
+            //otherwise my player need to be grounded
             movement.y = verticalVelocity;
         }
 
@@ -82,7 +82,7 @@ public class character : MonoBehaviour
         if (characterController.isGrounded)
         {
             isJumping = false;
-            // Ensure that the character rests on the ground without any vertical velocity.
+            // Ensure that the character rests on the ground
             movement.y = 0f;
         }
     }

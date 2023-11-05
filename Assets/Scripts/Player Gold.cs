@@ -4,7 +4,7 @@ using System.Collections;
 public class PlayerGold : MonoBehaviour
 {
     public int currentGold = 50; // Initial gold value
-    public int goldPerInterval = 50; // Amount of gold to add per interval
+    public int goldPerInterval = 20; // Amount of gold to add per interval
     public float interval = 10; // Time interval between adding gold
 
     private void Start()
@@ -13,7 +13,7 @@ public class PlayerGold : MonoBehaviour
         StartCoroutine(AddGoldPeriodically());
     }
 
-    // Coroutine to add gold periodically
+    // Coroutine to add gold periodically 
     private IEnumerator AddGoldPeriodically()
     {
         while (true)

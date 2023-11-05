@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class Menu : MonoBehaviour
 {
+    //if play button pressed then load into build 1(our game)
     public void onPlayButton(){
         SceneManager.LoadScene(1);
 
