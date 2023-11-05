@@ -3194,6 +3194,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shieldController: {fileID: 1602139112}
+  activeColor: {r: 0, g: 0.17619658, b: 1, a: 1}
+  inactiveColor: {r: 0.5754717, g: 0.5754717, b: 0.5754717, a: 1}
 --- !u!1 &559508699
 GameObject:
   m_ObjectHideFlags: 0
@@ -49580,6 +49582,7 @@ MonoBehaviour:
   speed: 10
   jumpForce: 5
   jumpDuration: 0.5
+  sensitivity: 2
 --- !u!143 &1602139108
 CharacterController:
   m_ObjectHideFlags: 0
