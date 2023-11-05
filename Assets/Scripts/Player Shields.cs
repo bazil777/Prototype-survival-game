@@ -11,7 +11,7 @@ public class ShieldController : MonoBehaviour
 
     private void Start()
     {
-        shieldRenderer = GetComponent <Renderer>(); // Attach this script to your shield GameObject with a Renderer component
+        shieldRenderer = GetComponent<Renderer>(); // Attach this script to your shield GameObject with a Renderer component
         originalShieldMaterial = shieldRenderer.material;
     }
 
@@ -50,6 +50,12 @@ public class ShieldController : MonoBehaviour
     private void UpdateShieldMaterial()
     {
         shieldRenderer.material = originalShieldMaterial;
+    }
+
+    // Method to toggle the shield on and off
+    public void ToggleShield(bool isActive)
+    {
+        gameObject.SetActive(isActive);
     }
 
     // Method to increase shields
