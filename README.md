@@ -17,7 +17,8 @@ Boxed In is a survival game that challenges you to navigate through a hostile en
 Controls
 
 - Use the arrow keys to move your character.
-	  - Left arrow: Rotate left.
+	 
+         - Left arrow: Rotate left.
  	 - Right arrow: Rotate right.
  	 - Up arrow: Move forward.
  	 - Down arrow: Move backward.
