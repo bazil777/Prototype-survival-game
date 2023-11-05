@@ -17,8 +17,7 @@ Boxed In is a survival game that challenges you to navigate through a hostile en
 Controls
 
 - Use the arrow keys to move your character.
-	 
-         - Left arrow: Rotate left.
+	 - Left arrow: Rotate left.
  	 - Right arrow: Rotate right.
  	 - Up arrow: Move forward.
  	 - Down arrow: Move backward.
@@ -29,7 +28,7 @@ Controls
 
 Gameplay
 
-Survive the hostile environment by using your character's abilities and attacking enemies. Collect gold as you progress, but be cautious of the Magic Ball gold draining and enemies attacks.
+Survive the hostile environment by using your character's abilities and attacking enemies. Collect gold as you progress, but be cautious of the Magic Ball gold draining abilities and enemies attacks.
 
 Magic Ball
 
