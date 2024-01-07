@@ -5,7 +5,7 @@ public class PlayerHealth : MonoBehaviour
     public int health = 60; // Initial health value
     public Material deathMaterial; // Reference to the material to use when health reaches 0 (may not apply in prototype as not core but will need to do something on death in final game )
     public int maxHealth = 100; // The maximum health value
-
+    public GameObject damageParticlesPrefab; // Creates particles, used below to when player is hit
     private Renderer capsuleRenderer;
     private Material originalMaterial;
 
@@ -25,6 +25,7 @@ public class PlayerHealth : MonoBehaviour
             //if it is less than zero then call death function(atm it does nothing but in the game it will.)
             OnPlayerDeath();
         }
+        Instantiate(damageParticlesPrefab, transform.position, Quaternion.identity);
         UpdateMaterial();
     }
 
